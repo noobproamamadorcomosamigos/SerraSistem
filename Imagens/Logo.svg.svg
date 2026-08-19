@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="clip_path_1">
+      <rect width="358.435" height="166.6" />
+    </clipPath>
+    <clipPath id="clip_path_2">
+      <rect width="140.593" height="186.862" />
+    </clipPath>
+    <clipPath id="clip_path_3">
+      <rect width="217.842" height="186.862" />
+    </clipPath>
+    <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Agdasima</style>
+  </defs>
+  <g>
+    <rect width="512" height="512" fill="#FFFFFF" fill-rule="evenodd" />
+    <path d="M10 0L348.435 0C353.959 0 358.435 4.4764 358.435 10L358.435 168.851L0 168.851L0 10C0 4.4764 4.4764 0 10 0L10 0Z" fill="#F59D0A" transform="translate(77 77)" />
+    <text clip-path="url(#clip_path_1)" fill="#0F1629" font-family="Agdasima" font-size="60" font-weight="normal" letter-spacing="5" transform="translate(77 113.3)">
+      <tspan x="114.399" y="73.511">Serra</tspan>
+    </text>
+    <path d="M0 0L140.593 0L140.593 0L140.593 176.862C140.593 182.385 136.117 186.862 130.593 186.862L10 186.862C4.4764 186.862 0 182.385 0 176.862L0 0L0 0Z" fill="#536DFE" transform="translate(77 245)" />
+    <text clip-path="url(#clip_path_2)" fill="#000000" font-family="Agdasima" font-size="78" font-weight="normal" letter-spacing="5" transform="translate(76 295.252)">
+      <tspan x="44.056" y="76.743">PI</tspan>
+    </text>
+    <text clip-path="url(#clip_path_3)" fill="#0F1629" font-family="Agdasima" font-size="17" font-weight="bold" letter-spacing="5" transform="translate(218 287.547)">
+      <tspan x="39.515" y="16.95">SISTEMA PARA </tspan>
+      <tspan x="28.228" y="37.304">SUPERMERCADOS
+</tspan>
+      <tspan x="111.446" y="57.657">
+</tspan>
+      <tspan x="14.573" y="78.011">GERENCIAMENTO DE </tspan>
+      <tspan x="6.539" y="98.364">ESTOQUE E CLIENTES</tspan>
+    </text>
+  </g>
+</svg>
