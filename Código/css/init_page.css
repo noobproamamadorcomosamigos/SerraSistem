@@ -1,0 +1,60 @@
+body {
+    background-color: #F59E0B !important;
+    font-family: "Roboto Condensed", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    background-color: #000000;
+    width: 100%;
+    padding: 4px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    /* Detalhe da marca na borda inferior */
+    border-bottom: 3px solid #694c1a; 
+}
+
+.menu ul {
+    display: flex !important;
+    list-style: none;
+    padding: 0 16px;
+    margin: 0;
+    gap: 4px;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Oculta a barra de rolagem mantendo a funcionalidade */
+.menu ul::-webkit-scrollbar {
+    display: none;
+}
+.menu ul {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+/* Hover usando o tom âmbar ligeiramente mais escuro */
+.menu a:hover {
+    background-color: #D97706;
+    color: #ffffff;
+}
+
+/* Item Ativo com o tom principal da marca */
+.menu a.active {
+    background-color: #F59E0B;
+    color: #000000; /* Texto escuro para garantir alto contraste com o amarelo */
+    font-weight: bold;
+}

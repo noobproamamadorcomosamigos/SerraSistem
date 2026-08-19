@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SerraSistema</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-card">
+        <h2>Acesso ao Sistema</h2>
+        <form onsubmit="validarLogin(event)">
+            <input type="text" id="usuario" placeholder="Usuário" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        function validarLogin(event) {
+            event.preventDefault(); // Impede o envio padrão
+            const u = document.getElementById('usuario').value;
+            const s = document.getElementById('senha').value;
+
+            // Define usuario: admin | senha: 123
+            if (u === 'admin' && s === '123') {
+                window.location.href = 'init_page.html'; // Vai para a tela inicial
+            } else {
+                alert('Usuário ou senha incorretos!');
+            }
+        }
+    </script>
+</body>
+</html>
