@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Administrador - SerraSistema</title>
+	<link rel="stylesheet" href="../../css/init_page.css">
+	<link rel="stylesheet" href="../../css/cargo.css">
+	<link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+	<nav class="menu">
+		<ul>
+			<li><a href="#painel">Painel</a></li>
+			<li><a href="#vendas">Vendas</a></li>
+			<li><a href="#caixa">Caixa</a></li>
+			<li><a href="#produtos">Produtos</a></li>
+			<li><a href="#estoque">Estoque</a></li>
+			<li><a href="#compras">Compras</a></li>
+			<li><a href="#fornecedores">Fornecedores</a></li>
+			<li><a href="#clientes">Clientes</a></li>
+			<li><a href="#funcionarios">Funcionarios</a></li>
+			<li><a href="#relatorios">Relatorios</a></li>
+			<li><a href="#notificacoes">Notificacoes</a></li>
+			<li><a href="#maquinas">Maquinas</a></li>
+			<li><a href="#configuracoes">Configuracoes</a></li>
+			<li><a class="logout" href="#" onclick="parent.mostrarLogin(); return false;">Sair</a></li>
+		</ul>
+	</nav>
+	<main class="page-shell">
+		<header class="profile">
+			<div>
+				<h1>Bem-vindo! <span id="nome-usuario"></span></h1>
+				<p>Visao geral e controle completo do SerraSistema.</p>
+			</div>
+			<span class="role-badge">Administrador</span>
+		</header>
+		<section class="dashboard-grid">
+			<article class="panel"><h2>Visao geral</h2><p>Acompanhe vendas, caixa, estoque e atividade da equipe.</p></article>
+			<article class="panel"><h2>Funcionarios</h2><p>Cadastre usuarios, cargos e permissoes de acesso.</p></article>
+			<article class="panel"><h2>Configuracoes</h2><p>Gerencie maquinas, banco de dados e configuracoes tecnicas.</p></article>
+		</section>
+	</main>
+	<script>
+		var nome = decodeURIComponent((window.location.search.match(/[?&]usuario=([^&]*)/) || ['', ''])[1]);
+		document.getElementById('nome-usuario').textContent = nome;
+	</script>
+</body>
+</html>

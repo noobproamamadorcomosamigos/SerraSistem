@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vendedor - SerraSistema</title>
+	<link rel="stylesheet" href="../../css/init_page.css">
+	<link rel="stylesheet" href="../../css/cargo.css">
+	<link rel="stylesheet" href="../../css/vendedor.css">
+</head>
+<body>
+	<nav class="menu">
+		<ul>
+			<li><a href="#vendas">Vendas</a></li>
+			<li><a href="#clientes">Clientes</a></li>
+			<li><a href="#produtos">Consultar produtos</a></li>
+			<li><a href="#historico">Minhas vendas</a></li>
+			<li><a href="#notificacoes">Notificacoes</a></li>
+			<li><a class="logout" href="#" onclick="parent.mostrarLogin(); return false;">Sair</a></li>
+		</ul>
+	</nav>
+	<main class="page-shell">
+		<header class="profile">
+			<div>
+				<h1>Bem-vindo! <span id="nome-usuario"></span></h1>
+				<p>Atendimento, vendas e relacionamento com clientes.</p>
+			</div>
+			<span class="role-badge">Vendedor</span>
+		</header>
+		<section class="dashboard-grid">
+			<article class="panel"><h2>Nova venda</h2><p>Consulte produtos e monte uma venda para o cliente.</p></article>
+			<article class="panel"><h2>Clientes</h2><p>Consulte cadastros e historico de compras.</p></article>
+			<article class="panel"><h2>Produtos</h2><p>Pesquise precos, disponibilidade e detalhes.</p></article>
+		</section>
+	</main>
+	<script>
+		var nome = decodeURIComponent((window.location.search.match(/[?&]usuario=([^&]*)/) || ['', ''])[1]);
+		document.getElementById('nome-usuario').textContent = nome;
+	</script>
+</body>
+</html>

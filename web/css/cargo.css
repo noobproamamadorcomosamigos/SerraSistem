@@ -1,0 +1,92 @@
+#cargo-usuario {
+    margin: 10px 16px 2px;
+    color: #000000;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#boas-vindas {
+    margin: 10px 16px;
+    color: #333333;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.page-shell {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 22px 0 40px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.profile h1 {
+    margin: 0 0 5px;
+    color: #000000;
+    font-size: 24px;
+    line-height: 1.1;
+}
+
+.profile p {
+    margin: 0;
+    color: #333333;
+    font-size: 14px;
+}
+
+.role-badge {
+    padding: 7px 11px;
+    border: 1px solid #694c1a;
+    border-radius: 4px;
+    color: #000000;
+    background: #f8d27b;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.panel {
+    min-height: 120px;
+    padding: 18px;
+    border: 1px solid #d3aa58;
+    border-top: 3px solid #000000;
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.panel h2 {
+    margin: 0 0 9px;
+    color: #000000;
+    font-size: 17px;
+}
+
+.panel p {
+    margin: 0;
+    color: #333333;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+    .profile {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}

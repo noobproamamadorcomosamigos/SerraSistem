@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Estoquista - SerraSistema</title>
+	<link rel="stylesheet" href="../../css/init_page.css">
+	<link rel="stylesheet" href="../../css/cargo.css">
+	<link rel="stylesheet" href="../../css/estoquista.css">
+</head>
+<body>
+	<nav class="menu">
+		<ul>
+			<li><a href="#produtos">Produtos</a></li>
+			<li><a href="#estoque">Estoque</a></li>
+			<li><a href="#compras">Compras</a></li>
+			<li><a href="#fornecedores">Fornecedores</a></li>
+			<li><a href="#movimentacoes">Movimentacoes</a></li>
+			<li><a href="#inventario">Inventario</a></li>
+			<li><a href="#notificacoes">Notificacoes</a></li>
+			<li><a class="logout" href="#" onclick="parent.mostrarLogin(); return false;">Sair</a></li>
+		</ul>
+	</nav>
+	<main class="page-shell">
+		<header class="profile">
+			<div>
+				<h1>Bem-vindo! <span id="nome-usuario"></span></h1>
+				<p>Controle de produtos, entradas, saidas e inventario.</p>
+			</div>
+			<span class="role-badge">Estoquista</span>
+		</header>
+		<section class="dashboard-grid">
+			<article class="panel"><h2>Estoque</h2><p>Consulte quantidades e identifique produtos em falta.</p></article>
+			<article class="panel"><h2>Movimentacoes</h2><p>Registre entradas, saidas, perdas e ajustes.</p></article>
+			<article class="panel"><h2>Compras</h2><p>Acompanhe pedidos e fornecedores de reposicao.</p></article>
+		</section>
+	</main>
+	<script>
+		var nome = decodeURIComponent((window.location.search.match(/[?&]usuario=([^&]*)/) || ['', ''])[1]);
+		document.getElementById('nome-usuario').textContent = nome;
+	</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SerraSistema</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/bridge.js"></script>
+    <script src="../js/debug.js"></script>
+</head>
+<body>
+    <div id="login-view">
+        <div id="login-card" class="login-card">
+            <h2>Acesso ao Sistema</h2>
+            <form onsubmit="validarLogin(event)">
+                <input type="text" id="usuario" placeholder="Usuário" required>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <button type="button" class="secondary-button" onclick="mostrarCadastro()">Criar conta</button>
+        </div>
+
+        <div id="cadastro-card" class="login-card" style="display: none;">
+            <h2>Criar conta</h2>
+            <p class="form-note">A criação precisa ser autorizada por um administrador.</p>
+            <form onsubmit="criarConta(event)">
+                <input type="text" id="admin-usuario" placeholder="Usuário do administrador" required>
+                <input type="password" id="admin-senha" placeholder="Senha do administrador" required>
+                <input type="text" id="novo-usuario" placeholder="Novo usuário" required>
+                <input type="password" id="nova-senha" placeholder="Nova senha" required>
+                <select id="novo-cargo" required>
+                    <option value="" selected disabled>Selecione o cargo</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="gerente">Gerente</option>
+                    <option value="operador">Operador</option>
+                    <option value="estoquista">Estoquista</option>
+                    <option value="vendedor">Vendedor</option>
+                </select>
+                <button type="submit">Salvar conta</button>
+                <button type="button" class="secondary-button" onclick="mostrarLogin()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cargo-view">
+        <iframe id="cargo-frame" title="Área do cargo"></iframe>
+    </div>
+
+    <script>
+        function validarLogin(event) {
+            event.preventDefault(); // Impede o envio padrão
+            var u = document.getElementById('usuario').value;
+            var s = document.getElementById('senha').value;
+
+            if (!window.backend || typeof window.backend.validarLogin !== 'function') {
+                alert('A comunicação com o Nim ainda não foi inicializada.');
+                return;
+            }
+
+            window.backend.validarLogin(u, s, function (resultado) {
+                if (resultado) {
+                    mostrarInicio(resultado);
+                } else {
+                    alert('Usuário ou senha incorretos!');
+                }
+            }, function (erro) {
+                console.error(erro);
+                alert('Não foi possível comunicar com o Nim.');
+            });
+        }
+
+        function mostrarCadastro() {
+            document.getElementById('login-card').style.display = 'none';
+            document.getElementById('cadastro-card').style.display = 'block';
+        }
+
+        function criarConta(event) {
+            event.preventDefault();
+            var dados = {
+                adminUsuario: document.getElementById('admin-usuario').value,
+                adminSenha: document.getElementById('admin-senha').value,
+                novoUsuario: document.getElementById('novo-usuario').value,
+                novaSenha: document.getElementById('nova-senha').value,
+                novoCargo: document.getElementById('novo-cargo').value
+            };
+
+            if (!window.backend || typeof window.backend.criarConta !== 'function') {
+                alert('A comunicação com o Nim ainda não foi inicializada.');
+                return;
+            }
+
+            window.backend.criarConta(dados, function (resultado) {
+                if (resultado === true || resultado === 'true') {
+                    alert('Conta criada com sucesso.');
+                    mostrarLogin();
+                } else {
+                    alert('Administrador não autorizado ou usuário já existente.');
+                }
+            }, function (erro) {
+                console.error(erro);
+                alert('Não foi possível comunicar com o Nim.');
+            });
+        }
+
+        function mostrarInicio(dadosUsuario) {
+            var dados = dadosUsuario.split('|');
+            var cargo = dados[0].toLowerCase();
+            var paginas = {
+                administrador: 'admin.html',
+                gerente: 'gerente.html',
+                operador: 'operador.html',
+                estoquista: 'estoquista.html',
+                vendedor: 'vendedor.html'
+            };
+
+            if (!paginas[cargo]) {
+                alert('Cargo sem página configurada: ' + cargo);
+                return;
+            }
+
+            document.getElementById('login-view').style.display = 'none';
+            document.getElementById('cargo-view').style.display = 'block';
+            document.getElementById('cargo-frame').src = 'init_cargos/' + paginas[cargo] +
+                '?usuario=' + encodeURIComponent(dados[1]);
+        }
+
+        function mostrarLogin() {
+            document.getElementById('cargo-frame').src = '';
+            document.getElementById('cargo-view').style.display = 'none';
+            document.getElementById('login-view').style.display = 'flex';
+            document.getElementById('login-card').style.display = 'block';
+            document.getElementById('cadastro-card').style.display = 'none';
+            document.getElementById('usuario').value = '';
+            document.getElementById('senha').value = '';
+        }
+    </script>
+</body>
+</html>

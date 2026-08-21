@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gerente - SerraSistema</title>
+	<link rel="stylesheet" href="../../css/init_page.css">
+	<link rel="stylesheet" href="../../css/cargo.css">
+	<link rel="stylesheet" href="../../css/gerente.css">
+</head>
+<body>
+	<nav class="menu">
+		<ul>
+			<li><a href="#painel">Painel</a></li>
+			<li><a href="#vendas">Vendas</a></li>
+			<li><a href="#estoque">Estoque</a></li>
+			<li><a href="#produtos">Produtos</a></li>
+			<li><a href="#compras">Compras</a></li>
+			<li><a href="#fornecedores">Fornecedores</a></li>
+			<li><a href="#funcionarios">Funcionarios</a></li>
+			<li><a href="#relatorios">Relatorios</a></li>
+			<li><a href="#notificacoes">Notificacoes</a></li>
+			<li><a class="logout" href="#" onclick="parent.mostrarLogin(); return false;">Sair</a></li>
+		</ul>
+	</nav>
+	<main class="page-shell">
+		<header class="profile">
+			<div>
+				<h1>Bem-vindo! <span id="nome-usuario"></span></h1>
+				<p>Gestao do estabelecimento e acompanhamento dos resultados.</p>
+			</div>
+			<span class="role-badge">Gerente</span>
+		</header>
+		<section class="dashboard-grid">
+			<article class="panel"><h2>Vendas do dia</h2><p>Consulte vendas, caixas e formas de pagamento.</p></article>
+			<article class="panel"><h2>Estoque</h2><p>Acompanhe produtos com estoque baixo e movimentacoes.</p></article>
+			<article class="panel"><h2>Equipe</h2><p>Veja funcionarios conectados e acompanhe operacoes.</p></article>
+		</section>
+	</main>
+	<script>
+		var nome = decodeURIComponent((window.location.search.match(/[?&]usuario=([^&]*)/) || ['', ''])[1]);
+		document.getElementById('nome-usuario').textContent = nome;
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Operador - SerraSistema</title>
+    <link rel="stylesheet" href="../../css/init_page.css">
+    <link rel="stylesheet" href="../../css/cargo.css">
+    <link rel="stylesheet" href="../../css/operador.css">
+</head>
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="#vendas">Vendas</a></li>
+            <li><a href="#caixa">Caixa</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#historico">Minhas vendas</a></li>
+            <li><a class="logout" href="#" onclick="parent.mostrarLogin(); return false;">Sair</a></li>
+        </ul>
+    </nav>
+    <main class="page-shell">
+        <header class="profile">
+            <div>
+                <h1>Bem-vindo! <span id="nome-usuario"></span></h1>
+                <p>Operacao de caixa, vendas e atendimento no turno.</p>
+            </div>
+            <span class="role-badge">Operador</span>
+        </header>
+        <section class="dashboard-grid">
+            <article class="panel"><h2>Abrir caixa</h2><p>Informe o valor inicial e comece o atendimento.</p></article>
+            <article class="panel"><h2>Nova venda</h2><p>Registre produtos, pagamentos, descontos e troco.</p></article>
+            <article class="panel"><h2>Fechar caixa</h2><p>Confira o valor contado e encerre o turno.</p></article>
+        </section>
+    </main>
+    <script>
+        var nome = decodeURIComponent((window.location.search.match(/[?&]usuario=([^&]*)/) || ['', ''])[1]);
+        document.getElementById('nome-usuario').textContent = nome;
+    </script>
+</body>
+</html>
